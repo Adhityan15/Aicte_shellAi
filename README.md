@@ -1,16 +1,34 @@
 # Aicte_shellAi
 Water Quality Prediction Using Machine Learning
 
-Week 1 Summary: Data Collection & Preprocessing
-Imported Required Libraries:
-Used pandas, numpy, scikit-learn modules for data processing and model building.
-Loaded the Dataset:
-Loaded datasetwaterquality.csv using pandas.read_csv() with sep=';'.
-Initial Data Exploration:
-Inspected dataset structure with df.info(), df.describe(), df.shape, and checked for null values using df.isnull().sum().
-Handled Date Column:
-Converted date column from string to datetime format using pd.to_datetime().
-Cleaned and Organized Data:
-Sorted the dataset by id and date to maintain chronological order per location/station.
-pollutants:
-Selected target pollutants for modeling: ['O2', 'NO3', 'NO2', 'SO4', 'PO4', 'CL'].
+🌊 Water Pollution Prediction (2000–2021)
+This project predicts water pollutant levels across 22 stations using machine learning.
+
+📁 Dataset
+File: waterqualitypred.csv
+
+Records: 2861
+
+Pollutants Tracked: O2, NO3, NO2, SO4, PO4, CL
+
+✅ Week 1: Data Preprocessing
+Loaded CSV with pandas
+
+Converted date to datetime, extracted year & month
+
+Handled missing values using dropna()
+
+Features: id, year (encoded using get_dummies)
+
+Target: Selected pollutant columns
+
+🤖 Week 2: Model Training & Prediction
+Model: MultiOutputRegressor with RandomForestRegressor
+
+Split data: 80% train, 20% test
+
+Evaluation: MSE & R² score
+
+Prediction: Given station_id and year, model predicts all 6 pollutant levels
+
+Model saved using joblib
