@@ -32,3 +32,5 @@ Evaluation: MSE & R² score
 Prediction: Given station_id and year, model predicts all 6 pollutant levels
 
 Model saved using joblib
+
+Model link :https://drive.google.com/file/d/18RJzu35vyuMgpcAE590u1IaDvHY3-SWq/view
