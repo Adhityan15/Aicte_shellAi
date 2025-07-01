@@ -1,36 +1,85 @@
-# Aicte_shellAi
-Water Quality Prediction Using Machine Learning
+# 💧 Water Quality Prediction Using Machine Learning
 
-🌊 Water Pollution Prediction (2000–2021)
-This project predicts water pollutant levels across 22 stations using machine learning.
+This project predicts water pollution levels across 22 stations in India using a machine learning model trained on historical data from 2000–2021. The deployed app allows users to select a year and station ID and get predictions for six major pollutants.
 
-📁 Dataset
-File: waterqualitypred.csv
+---
 
-Records: 2861
+## 🌊 Project Overview
 
-Pollutants Tracked: O2, NO3, NO2, SO4, PO4, CL
+- **Pollutants Tracked**: O₂, NO₃, NO₂, SO₄, PO₄, Cl
+- **Dataset Used**: `waterqualitypred.csv`
+- **Total Records**: 2,861
+- **Features Used**: `id`, `year`
+- **Target Outputs**: O₂, NO₃, NO₂, SO₄, PO₄, Cl
 
-✅ Week 1: Data Preprocessing
-Loaded CSV with pandas
+---
 
-Converted date to datetime, extracted year & month
+## ✅ Week 1: Data Preprocessing
 
-Handled missing values using dropna()
+- Loaded the CSV using **pandas**
+- Converted `date` column to datetime format
+- Extracted `year` and `month`
+- Handled missing values using `dropna()`
+- Encoded `station id` using `get_dummies()`
+- Final features: `year`, `id_*` columns
+- Target: Pollutant levels
 
-Features: id, year (encoded using get_dummies)
+---
 
-Target: Selected pollutant columns
+## 🤖 Week 2: Model Training
 
-🤖 Week 2: Model Training & Prediction
-Model: MultiOutputRegressor with RandomForestRegressor
+- **Model Used**: `MultiOutputRegressor` with `RandomForestRegressor`
+- Split: 80% Training, 20% Testing
+- Evaluation Metrics:  
+  - 📉 Mean Squared Error (MSE)  
+  - 📈 R² Score
+- Saved trained model with `joblib`
 
-Split data: 80% train, 20% test
+🔗 **Model File**:  
+[Google Drive - pollution_model.pkl](https://drive.google.com/file/d/18RJzu35vyuMgpcAE590u1IaDvHY3-SWq/view)
 
-Evaluation: MSE & R² score
+---
 
-Prediction: Given station_id and year, model predicts all 6 pollutant levels
+## 🚀 Week 3: Deployment
 
-Model saved using joblib
+- Developed interactive UI using **Streamlit**
+- User inputs: Year & Station ID
+- Output: Predicted values for all 6 pollutants
+- Model loaded from `.pkl` file via Git LFS
+- Deployed on **Streamlit Community Cloud**
 
-Model link :https://drive.google.com/file/d/18RJzu35vyuMgpcAE590u1IaDvHY3-SWq/view
+🔗 **Live App**:  
+[https://waterqualitypredictor.streamlit.app](https://waterqualitypredictor.streamlit.app)
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- pandas, numpy
+- scikit-learn
+- joblib
+- Streamlit
+- Git LFS (for handling large model files)
+
+---
+
+## 📂 Repository Structure
+
+├── app.py # Streamlit app
+├── pollution_model.pkl # Trained model (via Git LFS)
+├── model_columns.pkl # Columns used in the model
+├── datasetwaterquality.csv # Original dataset
+├── requirements.txt # Required Python packages
+├── README.md # You're here!
+
+
+## ✨ Future Scope
+
+- Add station name auto-fill
+- Visualize pollutant trends by year
+- Mobile-responsive UI
+
+---
+
+Made with 💙 by [Adhityan](https://github.com/Adhityan15)
